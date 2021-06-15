@@ -61,7 +61,9 @@ const bgColorChange = (e) => {
     bobody.style.backgroundColor = e.target.style.backgroundColor;
   } else if (
     e.target.classList.contains("button-box") ||
-    e.target.classList.contains("colors")
+    e.target.classList.contains("colors") ||
+    e.target.classList.contains("random-colors") ||
+    e.target.classList.contains("saved-colors")
   ) {
     bobody.style.backgroundColor = "white";
   }
