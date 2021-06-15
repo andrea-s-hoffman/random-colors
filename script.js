@@ -46,7 +46,7 @@ const unsave = (e) => {
 const displayStats = (e) => {
   if (e.target.classList.contains("color")) {
     displayColor.style.backgroundColor = e.target.style.backgroundColor;
-    console.dir(e.target);
+    // console.dir(e.target);
     let red = e.target.attributes[1].value;
     let green = e.target.attributes[2].value;
     let blue = e.target.attributes[3].value;
