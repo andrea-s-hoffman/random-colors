@@ -1,5 +1,6 @@
 "use strict";
 
+let bobody = document.querySelector("body");
 let makeColorButton = document.querySelector(".make-colors");
 let randomContainer = document.querySelector(".random-colors");
 let savedContainer = document.querySelector(".saved-colors");
@@ -46,21 +47,29 @@ const unsave = (e) => {
 const displayStats = (e) => {
   if (e.target.classList.contains("color")) {
     displayColor.style.backgroundColor = e.target.style.backgroundColor;
-    // console.dir(e.target);
     let red = e.target.attributes[1].value;
     let green = e.target.attributes[2].value;
     let blue = e.target.attributes[3].value;
     displayTextRed.innerText = `red: ${red}`;
     displayTextGreen.innerText = `green: ${green}`;
     displayTextBlue.innerText = `blue: ${blue}`;
-    // displayText.innerText = e.target.style.backgroundColor;
   }
-  //   else {
-  //     displayText.innerText = "";
-  //   }
+};
+
+const bgColorChange = (e) => {
+  if (e.target.classList.contains("display-color")) {
+    bobody.style.backgroundColor = e.target.style.backgroundColor;
+  } else if (
+    e.target.classList.contains("button-box") ||
+    e.target.classList.contains("colors")
+  ) {
+    bobody.style.backgroundColor = "white";
+  }
+  console.log(e.target);
 };
 
 makeColorButton.addEventListener("click", makeColors);
 randomContainer.addEventListener("click", saveColors);
 savedContainer.addEventListener("click", unsave);
 allColors.addEventListener("mouseover", displayStats);
+bobody.addEventListener("click", bgColorChange);
